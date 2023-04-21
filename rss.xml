@@ -1,7 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Wed, 19 Apr 2023 16:02:04 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>如何用SASS颜色函数和CSS变量</title><link>http://localhost:1313/posts/2023/04/19/%E5%A6%82%E4%BD%95%E7%94%A8sass%E9%A2%9C%E8%89%B2%E5%87%BD%E6%95%B0%E5%92%8Ccss%E5%8F%98%E9%87%8F/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/19/%E5%A6%82%E4%BD%95%E7%94%A8sass%E9%A2%9C%E8%89%B2%E5%87%BD%E6%95%B0%E5%92%8Ccss%E5%8F%98%E9%87%8F/</guid><pubDate>Wed, 19 Apr 2023 15:37:09 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Fri, 21 Apr 2023 11:07:22 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>将目录添加到Hugo主题</title><link>http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/</guid><pubDate>Fri, 21 Apr 2023 08:45:28 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h2 id="目录">目录&lt;/h2>
+&lt;p>配置
+简码
+单页模板/部分
+i18n
+造型
+用法
+结论&lt;/p>
+&lt;p>这篇文章介绍了雨果主题的另一个增强功能 - 目录 （TOC）。它基于 Hugo 的内置功能，可以解析 Markdown 内容并生成可在模板中使用的目录。本文是“雨果主题食谱”系列的第二篇。&lt;/p>
+&lt;p>通常，我的教程或文章从介绍部分开始。然后是详细步骤或实现细节，其中每个部分都以 H3（） 标题为标题。为了使我的文章中的导航更容易，在介绍部分之后，我向以下部分添加了锚链接列表;例如，链接将对应于标题为 .这样的清单只不过是一个目录。###&lt;a href="http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/#install-hugo">Install Hugo&lt;/a>### Install Hugo&lt;/p>
+&lt;p>因此，我想自动创建目录，而不是手动添加锚链接列表。这可以通过使用 Hugo 的内置功能自动解析 Markdown 内容并创建目录来实现。基于此功能，我实现了一个解决方案，该解决方案允许使用简码或页面模板显示目录。&lt;/p>
+&lt;p>因此，让我们检查一下此解决方案的详细信息。我在下面描述的实现的源代码可以在我对 Bilberry 主题的贡献中找到。&lt;/p>
+&lt;h2 id="配置">配置&lt;/h2>
+&lt;p>要定义目录中需要包含的标题级别，您必须将以下内容添加到站点配置文件中，例如：config.toml&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">markup&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">markup&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">tableOfContents&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">startLevel&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">endLevel&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ordered&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>该设置定义 Hugo 开始呈现目录时的标题级别。设置当 Hugo 停止生成目录时的标题级别（包括）。在上面的配置中，从 H2（） 到 H5（）（包括 H&amp;lt;&amp;gt;（） 和 H&amp;lt;&amp;gt;（）的所有标题都将用于创建目录。该设置确定要生成的列表类型，即使用标记的有序列表或使用标记的无序列表。&lt;/p>
+&lt;h2 id="简码">简码&lt;/h2>
+&lt;p>根据 Hugo 文档，如果您的降价中有适当的标题，Hugo 将提取它们并存储在名为 的页面变量中。 由于它只能在 Go 模板中使用，因此您不能仅放置在内容文件中并期望显示目录。您可以做的是将其包装在简码中。在站点根目录中，创建包含以下内容的文件：.TableOfContents.TableOfContentslayouts/shortcodes/toc.html&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{{&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nx">Page&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">TableOfContents&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="单页模板部分">单页模板/部分&lt;/h2>
+&lt;p>然后，您可以更进一步，完全自动化目录的创建。То 这样做，首先，您需要将前言变量添加到默认原型模板中，该模板用于在 Hugo 主题中创建空内容文件。在Bilberry 主题中，它是原型/default.md。变量的默认值应设置为 ：toc toc false&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="cl">toc: false
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>其次，如果要根据内容中的字数使TOC呈现成为条件，请将参数添加到站点配置文件中并设置您认为合适的值，例如：tocMinWordCount500&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">param&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c"># Minimum word count to display the Table of Contents&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">tocMinWordCount&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">500&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>第三，在单页模板中，在显示内容之前添加以下代码片段：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ if and (.Params.toc) (gt .WordCount .Site.Params.tocMinWordCount ) }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>{{ i18n &amp;#34;tableOfContents&amp;#34; }}&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ .TableOfContents }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{ end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>例如，一个简单的页面模板可能如下所示：layout/_default/single.html&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ define &amp;#34;main&amp;#34; }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">main&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">article&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>{{ .Title }}&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ if and (.Params.toc) (gt .WordCount .Site.Params.tocMinWordCount ) }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>{{ i18n &amp;#34;tableOfContents&amp;#34; }}&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ .TableOfContents }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ end }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{ .Content }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">article&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">main&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{ end }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因此，在上面的示例中，仅当满足以下条件时，才会呈现目录：&lt;/p>
+&lt;ul>
+&lt;li>页面变量设置为toctrue&lt;/li>
+&lt;li>内容中的字数大于“站点配置”设置中定义的值tocMinWordCount&lt;/li>
+&lt;li>内容具有适当的标题，这些标题在 和 站点配置设置定义的范围内startLevelendLevel&lt;/li>
+&lt;/ul>
+&lt;h2 id="i18n">i18n&lt;/h2>
+&lt;p>由于该函数用于显示标签，因此请在相应的 i18n 配置文件中为键定义一个值，例如 i18n/en.toml：i18nTable of ContentstableOfContents&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">tableOfContents&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">other&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Table of Contents&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="造型">造型&lt;/h2>
+&lt;p>最后，最后要做的是使用 CSS 设置变量生成的 HTML 输出的样式。HTML 输出由一个具有子元素（或取决于设置）的元素组成，该子元素又包含一个带有元素列表的子 /。每个都包含一个指向相应内容标题的元素。
+下面是此类 HTML 的示例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">nav&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;TableOfContents&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ul&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ul&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;#header-h2-1&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Header H2 1&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;#header-h2-2&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Header H2 2&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;#header-h2-3&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Header H2 3&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">ul&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">li&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">ul&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">nav&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如何设置目录的样式在很大程度上取决于您使用的主题。在我的 Bilberry 主题中，样式是使用 SCSS 语法实现的，如下所示：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">#TableOfContents&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">block&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">transparent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">padding-bottom&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.2&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">ul&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">list-item&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">padding-left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">&amp;amp;&lt;/span>&lt;span class="nd">:not&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nd">:first-child&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">list-item&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">padding-left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="mf">.9&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">95&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">li&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">display&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">inherit&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$text-color&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">inherit&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">text-align&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">left&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">padding&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">&amp;amp;&lt;/span>&lt;span class="nd">:hover&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$highlight-color&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">transparent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>具有上述样式的目录将如下所示：&lt;/p>
+&lt;p>[图片]&lt;/p>
+&lt;h2 id="用法">用法&lt;/h2>
+&lt;p>如果要在降价内容中的特定点显示目录，请使用简码：toc.html&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">{{ &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">toc&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果要在内容的开头显示目录，请将页面变量设置为 ：toc true&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="cl">toc: true
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="结论">结论&lt;/h2>
+&lt;p>总而言之，所提出的解决方案提供了两个用于自动创建目录的选项。您可以使用其中之一或两者。简码方法更直接，对您选择的雨果主题的实现的依赖性更小。此外，您可以将简码放置在降价内容中的任何位置。另一方面，单页模板/部分方法更依赖于主题，并且生成的目录在显示的内容中具有固定的位置。不过，只需启用相应的页面变量即可更轻松地使用。&lt;/p></description></item><item><title>如何用SASS颜色函数和CSS变量</title><link>http://localhost:1313/posts/2023/04/19/%E5%A6%82%E4%BD%95%E7%94%A8sass%E9%A2%9C%E8%89%B2%E5%87%BD%E6%95%B0%E5%92%8Ccss%E5%8F%98%E9%87%8F/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/19/%E5%A6%82%E4%BD%95%E7%94%A8sass%E9%A2%9C%E8%89%B2%E5%87%BD%E6%95%B0%E5%92%8Ccss%E5%8F%98%E9%87%8F/</guid><pubDate>Wed, 19 Apr 2023 15:37:09 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;blockquote>
 &lt;p>一种所有浏览器都支持的新方法，用于将颜色存储在 CSS 变量中并使用 SASS 函数对其进行修改。&lt;/p>
 &lt;/blockquote>
-&lt;p>CSS 变量很棒。我们都知道这一点。HSL 颜色值是最好的。同意！SASS颜色功能很棒。是的，没什么新鲜事。但是如何结合这些东西并在今天使用它们呢？有办法！&lt;/p>
+&lt;h1 id="css变量很棒">CSS变量很棒&lt;/h1>
+&lt;p>我们都知道这一点。HSL 颜色值是最好的。同意！SASS颜色功能很棒。是的，没什么新鲜事。但是如何结合这些东西并在今天使用它们呢？有办法！&lt;/p>
 &lt;p>我们为我们的框架开发了一种新的方法，该方法将本机变量（存储HSL颜色值）的灵活性与SASS函数的实用性相结合。&lt;/p>
 &lt;pre style="background:#ded8fc;">
 &lt;font color="#000">👋 您第一次听说CodyHouse框架吗？&lt;/font>
@@ -367,7 +630,8 @@ $index: str-index($string, $search);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="结语">结语&lt;/h2>
-&lt;p>我们框架的主要目标是简化启动 Web 项目的过程。我们觉得我们正在朝着这个目标前进。如果您对我们可以改进的地方有任何建议，请与我们联系！欢迎任何反馈。&lt;/p></description><category domain="http://localhost:1313/tags/sass/">sass</category></item><item><title>Hugo Template 变量的定义</title><link>http://localhost:1313/posts/2023/04/19/hugo-template-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/19/hugo-template-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89/</guid><pubDate>Wed, 19 Apr 2023 13:45:28 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h2 id="template-变量">Template 变量&lt;/h2>
+&lt;p>我们框架的主要目标是简化启动 Web 项目的过程。我们觉得我们正在朝着这个目标前进。如果您对我们可以改进的地方有任何建议，请与我们联系！欢迎任何反馈。&lt;/p></description><category domain="http://localhost:1313/tags/sass/">sass</category></item><item><title>Hugo Template 变量的定义</title><link>http://localhost:1313/posts/2023/04/19/hugo-template-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/19/hugo-template-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89/</guid><pubDate>Wed, 19 Apr 2023 13:45:28 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h1 id="hugotemplate">hugoTemplate&lt;/h1>
+&lt;h2 id="template-变量">Template 变量&lt;/h2>
 &lt;blockquote>
 &lt;p>在 Hugo 的模板中，变量是可扩展的。&lt;/p>
 &lt;/blockquote>
