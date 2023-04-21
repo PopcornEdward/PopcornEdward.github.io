@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">TonyFang-wiki</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2023-04-21T11:07:22+08:00</updated><id>http://localhost:1313/</id><link rel="alternate" type="text/html" href="http://localhost:1313/"/><link rel="self" type="application/atom+xml" href="http://localhost:1313/atom.xml"/><author><name>TonyFang</name><uri>http://localhost:1313/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.111.3">Hugo</generator><entry><title type="text">将目录添加到Hugo主题</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/"/><id>http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/</id><updated>2023-04-21T09:18:44+08:00</updated><published>2023-04-21T08:45:28+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">目录 配置 简码 单页模板/部分 i18n 造型 用法 结论
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">TonyFang-wiki</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2023-04-21T16:58:22+08:00</updated><id>http://localhost:1313/</id><link rel="alternate" type="text/html" href="http://localhost:1313/"/><link rel="self" type="application/atom+xml" href="http://localhost:1313/atom.xml"/><author><name>TonyFang</name><uri>http://localhost:1313/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.111.3">Hugo</generator><entry><title type="text">Hugo Help命令详解</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/21/hugo-help%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/><id>http://localhost:1313/posts/2023/04/21/hugo-help%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</id><updated>2023-04-21T14:27:28+08:00</updated><published>2023-04-21T14:21:48+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">Hugo - 用于构建 Web 站点的快速静态站点生成器 用法 Hugo [命令]
+通用命令: version 显示 Hugo 版本号。 config 输出网站配置。 env 输出环境信息。 check 检查您的内容。 benchmark 在站点中运行基准测试。 new 在 content 目录中创建新站点资源。 gen (re)生成您的网站。 其他命令: undraft 从将内容草稿中发布。 delete 删除可通过 source 目录访问的内容。 server 启动一个服务器来在本地预览站点。 new theme 在 themes 目录中创建新主题资源。 convert 转换您的站点以使用不同的前端。 构建命令: hugo 在默认情况下创建您的站点。 hugo server 在本地机器上启动服务器。 hugo check 以查找您的网站的问题输出您的网站信息。 hugo mod clean 删除本地代理模块中的所有缓存数据。 hugo mod get 使用特定的版本替换现有的模块。 hugo mod init 将模块支持添加到站点。 hugo mod tidy 根据模块支持更新 go.</summary><content type="html">&lt;h1 id="hugo---用于构建-web-站点的快速静态站点生成器">Hugo - 用于构建 Web 站点的快速静态站点生成器&lt;/h1>
+&lt;h2 id="用法">用法&lt;/h2>
+&lt;p>Hugo [命令]&lt;/p>
+&lt;h3 id="通用命令">通用命令:&lt;/h3>
+&lt;pre tabindex="0">&lt;code>version 显示 Hugo 版本号。
+config 输出网站配置。
+env 输出环境信息。
+check 检查您的内容。
+benchmark 在站点中运行基准测试。
+new 在 content 目录中创建新站点资源。
+gen (re)生成您的网站。
+&lt;/code>&lt;/pre>&lt;h3 id="其他命令">其他命令:&lt;/h3>
+&lt;pre tabindex="0">&lt;code>undraft 从将内容草稿中发布。
+delete 删除可通过 source 目录访问的内容。
+server 启动一个服务器来在本地预览站点。
+new theme 在 themes 目录中创建新主题资源。
+convert 转换您的站点以使用不同的前端。
+&lt;/code>&lt;/pre>&lt;h3 id="构建命令">构建命令:&lt;/h3>
+&lt;pre tabindex="0">&lt;code>hugo 在默认情况下创建您的站点。
+hugo server 在本地机器上启动服务器。
+hugo check 以查找您的网站的问题输出您的网站信息。
+hugo mod clean 删除本地代理模块中的所有缓存数据。
+hugo mod get 使用特定的版本替换现有的模块。
+hugo mod init 将模块支持添加到站点。
+hugo mod tidy 根据模块支持更新 go.mod 文件，以获取最新的版本。
+hugo mod vendor 安装站点的所有模块的本地副本。
+&lt;/code>&lt;/pre>&lt;h3 id="全局标志-标记">全局标志 (标记):&lt;/h3>
+&lt;pre tabindex="0">&lt;code>-v, --verbose 长格式: --verbose 显示详细错误。启用此标记会导致 Hugo 输出更多信息。
+-s, --source 长格式: --source 指定源目录(默认为当前工作目录)。
+-d, --destination 长格式: --destination 指定输出目录 (默认为 $ {根路径}/public/)。
+-b, --baseURL 长格式: --baseURL 设置网站项目的基本 URL。 --appendPort 像基本 URL 添加一个端口。
+--buildDrafts 包括在草稿、隐藏内容及其它内容中的内容，以供构建时查看。 --buildFuture 包括计划发布日期大于现在的文章。
+--buildExpired 包括已过期的文章。
+--disableRSS 禁用 RSS 支持。
+--disableSitemap 禁用 Sitemap 支持。
+--enableGitInfo 启用 Git 信息。
+--cleanDestinationDir 配置 Hugo 是否应该删除生成的文件夹中存在但在源目录中不存在的现有目录。默认为 false。
+--forceSyncStatic 在同步静态文件时强制重新复制所有文件。
+--ignoreCache 忽略磁盘和内存缓存，并忽略文件系统通知。
+--isUTF8 将内容视为UTF-8 值。默认为 true。
+--layoutDir 指定布局目录 (默认为 $ {源目录}/layouts)。
+--log 将 Hugo 写入文件中，而不是 默认的 stderr。
+--minify 将资源（HTML、CSS、JS 等）缩小。
+--noChmod 禁止修改文件权限。
+--noTimes 禁止使用文件修改时间。
+--path-warnings 路径映射过程中的错误和警告。
+--pluck 在显示时显示指定字段。
+--quiet 静音输出。
+--renderToMemory 在内存中渲染站点。
+--templateMetrics 当渲染模板时输出计时器。
+--templateMetricsHints 如果为真，则在模板计时器输出中包含源位置。 --uglyURLs 生成丑陋的 URL。请参阅网站网址。
+--verboseLog 指定要记录的详细度。
+--verboseLogFiles 指定基于文件日志的详细度。
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>这些和其他标志可以在命令行中使用来定制您的 Hugo 网站构建。&lt;/p>
+&lt;/blockquote></content></entry><entry><title type="text">将目录添加到Hugo主题</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/"/><id>http://localhost:1313/posts/2023/04/21/%E5%B0%86%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0hugo%E4%B8%BB%E9%A2%98/</id><updated>2023-04-21T09:18:44+08:00</updated><published>2023-04-21T08:45:28+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">目录 配置 简码 单页模板/部分 i18n 造型 用法 结论
 这篇文章介绍了雨果主题的另一个增强功能 - 目录 （TOC）。它基于 Hugo 的内置功能，可以解析 Markdown 内容并生成可在模板中使用的目录。本文是“雨果主题食谱”系列的第二篇。
 通常，我的教程或文章从介绍部分开始。然后是详细步骤或实现细节，其中每个部分都以 H3（） 标题为标题。为了使我的文章中的导航更容易，在介绍部分之后，我向以下部分添加了锚链接列表;例如，链接将对应于标题为 .这样的清单只不过是一个目录。###Install Hugo### Install Hugo
 因此，我想自动创建目录，而不是手动添加锚链接列表。这可以通过使用 Hugo 的内置功能自动解析 Markdown 内容并创建目录来实现。基于此功能，我实现了一个解决方案，该解决方案允许使用简码或页面模板显示目录。
