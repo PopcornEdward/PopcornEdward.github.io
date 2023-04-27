@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">TonyFang-wiki</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2023-04-26T16:48:41+08:00</updated><id>http://localhost:1313/</id><link rel="alternate" type="text/html" href="http://localhost:1313/"/><link rel="self" type="application/atom+xml" href="http://localhost:1313/atom.xml"/><author><name>TonyFang</name><uri>http://localhost:1313/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.111.3">Hugo</generator><entry><title type="text">Gogs 日志的命令详解</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/26/gogs-%E6%97%A5%E5%BF%97%E7%9A%84%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/><id>http://localhost:1313/posts/2023/04/26/gogs-%E6%97%A5%E5%BF%97%E7%9A%84%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</id><updated>2023-04-26T16:46:35+08:00</updated><published>2023-04-26T16:39:32+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">gogs-日志的命令详解 1. gogs linux 用nohup 只输出错误日志怎么写 可以使用如下命令，在执行gogs时使用nohup，并将标准输出重定向到/dev/null：
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">TonyFang-wiki</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2023-04-27T14:40:23+08:00</updated><id>http://localhost:1313/</id><link rel="alternate" type="text/html" href="http://localhost:1313/"/><link rel="self" type="application/atom+xml" href="http://localhost:1313/atom.xml"/><author><name>TonyFang</name><uri>http://localhost:1313/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.111.3">Hugo</generator><entry><title type="text">Gogs 获取当前仓库下所有的tags标签</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/"/><id>http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/</id><updated>2023-04-27T14:34:21+08:00</updated><published>2023-04-27T14:30:49+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">要获取Gogs中当前组织当前仓库下所有的tags标签，你可以使用Git命令来实现。以下是一些示例命令：
+获取所有标签： 1 git fetch --tags 获取指定仓库的所有标签： 1 git fetch --tags &amp;lt;仓库地址&amp;gt; 获取指定组织和仓库的所有标签： 1 git fetch --tags &amp;lt;组织&amp;gt;/&amp;lt;仓库&amp;gt; 执行这些命令后，你将看到所有可用的标签列表，包括它们的SHA哈希值和提交信息。 若要获得更详细的信息，请使用以下命令：
+1 git tag -n 这将显示标签的名称、SHA哈希、作者、日期和注释。</summary><content type="html">&lt;blockquote>
+&lt;p>要获取Gogs中当前组织当前仓库下所有的tags标签，你可以使用Git命令来实现。以下是一些示例命令：&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>获取所有标签：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git fetch --tags
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>获取指定仓库的所有标签：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git fetch --tags &amp;lt;仓库地址&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>获取指定组织和仓库的所有标签：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git fetch --tags &amp;lt;组织&amp;gt;/&amp;lt;仓库&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>执行这些命令后，你将看到所有可用的标签列表，包括它们的SHA哈希值和提交信息。 若要获得更详细的信息，请使用以下命令：&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git tag -n
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这将显示标签的名称、SHA哈希、作者、日期和注释。&lt;/p></content><category scheme="http://localhost:1313/tags/gogs/" term="gogs" label="gogs"/><category scheme="http://localhost:1313/tags/git/" term="git" label="git"/></entry><entry><title type="text">Gogs 日志的命令详解</title><link rel="alternate" type="text/html" href="http://localhost:1313/posts/2023/04/26/gogs-%E6%97%A5%E5%BF%97%E7%9A%84%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/><id>http://localhost:1313/posts/2023/04/26/gogs-%E6%97%A5%E5%BF%97%E7%9A%84%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</id><updated>2023-04-26T16:46:35+08:00</updated><published>2023-04-26T16:39:32+08:00</published><author><name>TonyFang</name><uri>https://io-oi.me/</uri><email>reuixiy@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">gogs-日志的命令详解 1. gogs linux 用nohup 只输出错误日志怎么写 可以使用如下命令，在执行gogs时使用nohup，并将标准输出重定向到/dev/null：
 1 nohup /path/to/gogs &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp; 这样，标准输出会被重定向到/dev/null，只有错误输出会被保存在nohup.out文件中。如果要保存错误输出到其他文件，可以将 “2&amp;gt;&amp;amp;1”修改为“2&amp;gt;/path/to/error.log”来指定输出文件路径。
 2. bash: ./log/error.log: 权限不够 这个问题是因为当前用户对./log目录下的error.log文件没有写入的权限所导致的。
 要解决这个问题，你可以通过以下步骤尝试获得权限：
