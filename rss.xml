@@ -1,4 +1,443 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Thu, 27 Apr 2023 14:40:23 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>Gogs 获取当前仓库下所有的tags标签</title><link>http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/</guid><pubDate>Thu, 27 Apr 2023 14:30:49 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Thu, 27 Apr 2023 15:45:59 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>Try Gogs官网swagger所有接口表</title><link>http://localhost:1313/posts/2023/04/27/try-gogs%E5%AE%98%E7%BD%91swagger%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E8%A1%A8/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/27/try-gogs%E5%AE%98%E7%BD%91swagger%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E8%A1%A8/</guid><pubDate>Thu, 27 Apr 2023 14:49:08 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>接口名称&lt;/th>
+&lt;th>请求方法&lt;/th>
+&lt;th>请求路径&lt;/th>
+&lt;th>请求参数&lt;/th>
+&lt;th>返回结果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>GetAccessToken&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/users/:username/tokens&lt;/td>
+&lt;td>用户名和密码&lt;/td>
+&lt;td>用户 Token&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CheckCurrentPassword&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/user/password&lt;/td>
+&lt;td>旧的密码&lt;/td>
+&lt;td>状态码&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateAccessToken&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/user/tokens&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>用户&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateMilestone&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/repos/:owner/:repo/milestones&lt;/td>
+&lt;td>里程碑数据 里程碑&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateOrg&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/admin/orgs 组织数据 组织信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateRelease&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/repos/:owner/:repo/releases 发布信息 发布 ID&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateRepo&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/user/repos 仓库信息 仓库信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateTeam&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/orgs/:org/teams 团队数据 团队信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CreateUser&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/admin/users 用户信息 用户信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteArchive&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/repos/:owner/:repo/archive 无 归档文件&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteIssueComment&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/repos/:owner/:repo/issues/comments/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteMilestone&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/repos/:owner/:repo/milestones/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteOrg&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/admin/orgs/:name 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeletePublicKey&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/user/keys/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteRelease&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/repos/:owner/:repo/releases/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteRepo&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/repos/:owner/:repo 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteTeam&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/orgs/:org/teams/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeleteUser&lt;/td>
+&lt;td>DELETE&lt;/td>
+&lt;td>/admin/users/:name 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditIssueComment&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/repos/:owner/:repo/issues/comments/:id 评论内容 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditMilestone&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/repos/:owner/:repo/milestones/:id 里程碑数据 里程碑&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditOrg&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/admin/orgs/:name 组织数据 组织信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditPublicKey&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/user/keys/:id 无 状态码&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditRelease&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/repos/:owner/:repo/releases/:id 发布内容 发布 ID&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditRepo&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/repos/:owner/:repo 仓库信息 仓库信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditTeam&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/orgs/:org/teams/:id 团队数据 团队信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EditUser&lt;/td>
+&lt;td>PATCH&lt;/td>
+&lt;td>/admin/users/:name 用户信息 用户信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetBlob&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/git/blobs/:sha 无 Blob 内容&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetBranch&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/branches/:branch 无 分支信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetCommit&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/git/commits/:sha 无 提交信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetDownload&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/downloads/:id 无 下载信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetIssue&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/issues/:index 无 问题&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetIssueComment&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/issues/comments/:id 无 评论&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetKey&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/user/keys/:id 无 公钥信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetMilestone&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/milestones/:id 无 里程碑&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetOrg&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/orgs/:org 无 组织信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetPullRequest&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/pulls/:index 无 拉取请求&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetReadme&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/readme 无 README 文件&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetRelease&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/releases/:id 无 发布&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetRepo&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo 无 仓库信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetTag&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/git/tags/:sha 无 标签&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetTeam&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/orgs/:org/teams/:id 无 团队信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GetUser&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/users/:name 无 用户信息&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListArchive&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/archive 无 归档文件列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListBranches&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/branches 无 分支列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListCommits&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/commits 无 提交列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListDownloads&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/downloads 无 下载列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListForks&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/forks 无 仓库分叉列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListIssueComments&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/issues/:index/comments 无 评论列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListIssues&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/issues 无 问题列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListKeys&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/user/keys 无 公钥列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListMilestones&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/milestones 无 里程碑列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListMyRepos&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/user/repos 无 我的仓库列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListOrgRepos&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/orgs/:org/repos 无 组织的仓库列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListPullRequests&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/pulls 无 拉取请求列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListReleases&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/releases 无 发布列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListTags&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/:owner/:repo/git/tags 无 标签列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListTeams&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/orgs/:org/teams 无 团队列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListUserRepos&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/users/:name/repos 无 用户的仓库列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ListUsers&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/users 无 用户列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Search&lt;/td>
+&lt;td>GET&lt;/td>
+&lt;td>/repos/search 查询参数 仓库列表&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Upload&lt;/td>
+&lt;td>POST&lt;/td>
+&lt;td>/repos/:owner/:repo/releases/:id/assets 文件 资源位置&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><category domain="http://localhost:1313/tags/gogs/">gogs</category></item><item><title>Gogs 获取当前仓库下所有的tags标签</title><link>http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/04/27/gogs-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84tags%E6%A0%87%E7%AD%BE/</guid><pubDate>Thu, 27 Apr 2023 14:30:49 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;blockquote>
 &lt;p>要获取Gogs中当前组织当前仓库下所有的tags标签，你可以使用Git命令来实现。以下是一些示例命令：&lt;/p>
 &lt;/blockquote>
 &lt;ol>
