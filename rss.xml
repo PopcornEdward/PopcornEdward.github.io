@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Wed, 24 May 2023 09:22:34 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>大时代 AIGC的到来</title><link>http://localhost:1313/posts/2023/05/24/%E5%A4%A7%E6%97%B6%E4%BB%A3-aigc%E7%9A%84%E5%88%B0%E6%9D%A5/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/05/24/%E5%A4%A7%E6%97%B6%E4%BB%A3-aigc%E7%9A%84%E5%88%B0%E6%9D%A5/</guid><pubDate>Wed, 24 May 2023 17:21:19 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>当今，人工智能技术正在飞速发展，越来越多的企业和组织都开始将其应用于自己的业务中。为了更好地推广和应用人工智能技术，越来越多的人工智能社区和平台被创建出来。其中一个非常重要的平台就是AIGC（AI Global Community）。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyFang-wiki</title><link>http://localhost:1313/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.111.3 https://gohugo.io/</generator><language>en</language><managingEditor>reuixiy@gmail.com (TonyFang)</managingEditor><webMaster>reuixiy@gmail.com (TonyFang)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Mon, 29 May 2023 14:37:06 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="http://localhost:1313/rss.xml"/><item><title>Pnpm And Astro Win Setup Guide</title><link>http://localhost:1313/posts/2023/05/29/pnpm-and-astro-win-setup-guide/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/05/29/pnpm-and-astro-win-setup-guide/</guid><pubDate>Mon, 29 May 2023 22:25:36 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h1 id="win10-pnpmastro安装指南">win10-pnpm+astro安装指南&lt;/h1>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>全局安装pnpm命令&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>npm i -g pnpm&lt;/p>
+&lt;/blockquote>
+&lt;ol start="2">
+&lt;li>验证pnpm是否成功&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>pnpm -v&lt;/p>
+&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>安装astro创建新项目&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>pnpm create astro@latest&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="常见问题">常见问题&lt;/h2>
+&lt;h3 id="1-如果遇到error-unable-to-verify-the-first-certificate这类报错">1. 如果遇到&lt;code>Error: unable to verify the first certificate&lt;/code>这类报错&lt;/h3>
+&lt;ul>
+&lt;li>解决方案1&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>set NODE_TLS_REJECT_UNAUTHORIZED=0
+执行完上面这句后可以正常创建astro&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>解决方案2&lt;/li>
+&lt;/ul>
+&lt;p>去如下网站下载pem证书&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://letsencrypt.org/zh-cn/certificates/">https://letsencrypt.org/zh-cn/certificates/&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>大时代 AIGC的到来</title><link>http://localhost:1313/posts/2023/05/24/%E5%A4%A7%E6%97%B6%E4%BB%A3-aigc%E7%9A%84%E5%88%B0%E6%9D%A5/</link><guid isPermaLink="true">http://localhost:1313/posts/2023/05/24/%E5%A4%A7%E6%97%B6%E4%BB%A3-aigc%E7%9A%84%E5%88%B0%E6%9D%A5/</guid><pubDate>Wed, 24 May 2023 17:21:19 +0800</pubDate><author>reuixiy@gmail.com (TonyFang)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>当今，人工智能技术正在飞速发展，越来越多的企业和组织都开始将其应用于自己的业务中。为了更好地推广和应用人工智能技术，越来越多的人工智能社区和平台被创建出来。其中一个非常重要的平台就是AIGC（AI Global Community）。&lt;/p>
 &lt;p>AIGC是一个由全球各地的人工智能专家、企业家、学者和爱好者组成的社区。该社区致力于推广和应用人工智能技术，以帮助企业和组织更好地实现数字化转型。AIGC提供了一系列的服务和资源，包括培训课程、技术支持、交流活动、合作机会等等。&lt;/p>
 &lt;p>作为一个开放的社区，AIGC欢迎所有对人工智能感兴趣的人加入。无论你是一名学生、一名研究人员、一名企业家，还是一名爱好者，你都可以在AIGC中找到自己的位置。在这里，你可以结识志同道合的人，分享你的经验和知识，学习最新的技术和应用案例，甚至找到合作伙伴和商业机会。&lt;/p>
 &lt;p>除了为个人和企业提供服务和资源之外，AIGC还致力于推动人工智能技术的发展和应用。该社区定期举办各种形式的交流活动，包括技术分享、论坛、研讨会、比赛等等。这些活动不仅可以促进人工智能领域的交流和合作，还可以为人工智能技术的发展提供更多的思路和资源。&lt;/p>
